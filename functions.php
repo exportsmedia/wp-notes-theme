@@ -20,6 +20,8 @@ function Wps_load_styles() {
 	wp_enqueue_style( 'bootstrap' );
 	wp_enqueue_style( 'skeleton-style' );
 
+	wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Open+Sans:300,400,700', array(), false );
+
 	wp_enqueue_script( 'main-theme-js', get_template_directory_uri() . '/js/main.js', array( 'jquery' ), date("ymd-Gis", filemtime( plugin_dir_path( __FILE__) . '/js/main.js' )), true );
 
 }
