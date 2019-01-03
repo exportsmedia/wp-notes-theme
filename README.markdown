@@ -1,4 +1,4 @@
-# WP-Skeleton - WordPress Theme
+# WP-Mike-Notes - WordPress Theme
 -------------------------------
 
 This is a very minimal Bare Bones Responsive WordPress theme based on getskeleton.com

@@ -12,526 +12,444 @@ This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
 
-/* Table of Contents
-==================================================
-    #Base 960 Grid
-    #Tablet (Portrait)
-    #Mobile (Portrait)
-    #Mobile (Landscape)
-    #Clearing */
+/*
+HTML5 Reset
+---------------------------------------------------------------------------------------------------- */
 
+/* Baseline Normalize
+	normalize.css v2.1.3 | MIT License | git.io/normalize
+--------------------------------------------- */
 
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+    display: block
+}
 
-/* #Base 960 Grid
-================================================== */
+audio,
+canvas,
+video {
+    display: inline-block
+}
 
-.container {
+audio:not([controls]) {
+    display: none;
+    height: 0
+}
+
+[hidden],
+template {
+    display: none
+}
+
+html {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%
+}
+
+body {
+    margin: 0
+}
+
+a {
+    background: transparent
+}
+
+a:focus {
+    outline: thin dotted
+}
+
+a:active,
+a:hover {
+    outline: 0
+}
+
+h1 {
+    font-size: 2em;
+    margin: .67em 0
+}
+
+abbr[title] {
+    border-bottom: 1px dotted
+}
+
+b,
+strong {
+    font-weight: 700
+}
+
+dfn {
+    font-style: italic
+}
+
+hr {
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 0
+}
+
+mark {
+    background: #ff0;
+    color: #000
+}
+
+code,
+kbd,
+pre,
+samp {
+    font-family: monospace, serif;
+    font-size: 1em
+}
+
+pre {
+    white-space: pre-wrap
+}
+
+q {
+    quotes: "\201C""\201D""\2018""\2019"
+}
+
+small {
+    font-size: 80%
+}
+
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
     position: relative;
-    width: 960px;
-    margin: 0 auto;
+    vertical-align: baseline
+}
+
+sup {
+    top: -.5em
+}
+
+sub {
+    bottom: -.25em
+}
+
+img {
+    border: 0
+}
+
+svg:not(:root) {
+    overflow: hidden
+}
+
+figure {
+    margin: 0
+}
+
+fieldset {
+    border: 1px solid silver;
+    margin: 0 2px;
+    padding: .35em .625em .75em
+}
+
+legend {
+    border: 0;
+    padding: 0
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+    font-size: 100%;
+    margin: 0
+}
+
+button,
+input {
+    line-height: normal
+}
+
+button,
+select {
+    text-transform: none
+}
+
+button,
+html input[type=button],
+input[type=reset],
+input[type=submit] {
+    -webkit-appearance: button;
+    cursor: pointer
+}
+
+button[disabled],
+html input[disabled] {
+    cursor: default
+}
+
+input[type=checkbox],
+input[type=radio] {
+    box-sizing: border-box;
+    padding: 0
+}
+
+input[type=search] {
+    -webkit-appearance: textfield;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box
+}
+
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-decoration {
+    -webkit-appearance: none
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0
+}
+
+textarea {
+    overflow: auto;
+    vertical-align: top
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+/* Box Sizing
+--------------------------------------------- */
+
+*,
+input[type="search"] {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/* Float Clearing
+--------------------------------------------- */
+
+.author-box:before,
+.clearfix:before,
+.entry:before,
+.entry-content:before,
+.footer-widgets:before,
+.nav-primary:before,
+.nav-secondary:before,
+.pagination:before,
+.site-container:before,
+.site-footer:before,
+.site-header:before,
+.site-inner:before,
+.title-area:before,
+.wrap:before {
+    content: " ";
+    display: table;
+}
+
+.author-box:after,
+.clearfix:after,
+.entry:after,
+.entry-content:after,
+.footer-widgets:after,
+.nav-primary:after,
+.nav-secondary:after,
+.pagination:after,
+.site-container:after,
+.site-footer:after,
+.site-header:after,
+.site-inner:after,
+.title-area:after,
+.wrap:after {
+    clear: both;
+    content: " ";
+    display: table;
+}
+
+/*
+Defaults
+---------------------------------------------------------------------------------------------------- */
+
+/* Typographical Elements
+--------------------------------------------- */
+
+body {
+    background-color: #f5f5f5;
+    color: #444;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.625;
+}
+
+a,
+button,
+input:focus,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+textarea:focus,
+.button {
+    -webkit-transition: all 0.1s ease-in-out;
+    -moz-transition: all 0.1s ease-in-out;
+    -ms-transition: all 0.1s ease-in-out;
+    -o-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+}
+
+::-moz-selection {
+    background-color: #000;
+    color: #fff;
+}
+
+::selection {
+    background-color: #000;
+    color: #fff;
+}
+
+a {
+    color: #78a7c8;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #0087B4;
+}
+
+p {
+    margin: 0 0 28px;
     padding: 0;
 }
 
-.column,
-.columns {
-    float: left;
-    display: inline;
-    margin-left: 10px;
-    margin-right: 10px;
+ol,
+ul {
+    margin: 0;
+    padding: 0;
 }
 
-/*.column, .columns                           { float: left; display: inline;}*/
-.row {
-    margin-bottom: 20px;
+li {
+    list-style-type: none;
 }
 
-/* Base Grid */
-.container .one.column {
-    width: 40px;
+b,
+strong {
+    font-weight: 700;
 }
 
-.container .two.columns {
-    width: 100px;
+blockquote,
+cite,
+em,
+i {
+    font-style: italic;
 }
 
-.container .three.columns {
-    width: 160px;
+blockquote {
+    margin: 40px;
 }
 
-.container .four.columns {
-    width: 220px;
-}
-
-.container .five.columns {
-    width: 280px;
-}
-
-.container .six.columns {
-    width: 340px;
-}
-
-.container .seven.columns {
-    width: 400px;
-}
-
-.container .eight.columns {
-    width: 460px;
-}
-
-.container .nine.columns {
-    width: 520px;
-}
-
-.container .ten.columns {
-    width: 580px;
-}
-
-.container .eleven.columns {
-    width: 640px;
-}
-
-.container .twelve.columns {
-    width: 700px;
-}
-
-.container .thirteen.columns {
-    width: 760px;
-}
-
-.container .fourteen.columns {
-    width: 820px;
-}
-
-.container .fifteen.columns {
-    width: 880px;
-}
-
-.container .sixteen.columns {
-    width: 940px;
-}
-
-.container .one-third.column {
-    width: 300px;
-}
-
-.container .two-thirds.column {
-    width: 620px;
-}
-
-/* Offsets */
-.container .offset-by-one {
-    padding-left: 60px;
-}
-
-.container .offset-by-two {
-    padding-left: 120px;
-}
-
-.container .offset-by-three {
-    padding-left: 180px;
-}
-
-.container .offset-by-four {
-    padding-left: 240px;
-}
-
-.container .offset-by-five {
-    padding-left: 300px;
-}
-
-.container .offset-by-six {
-    padding-left: 360px;
-}
-
-.container .offset-by-seven {
-    padding-left: 420px;
-}
-
-.container .offset-by-eight {
-    padding-left: 480px;
-}
-
-.container .offset-by-nine {
-    padding-left: 540px;
-}
-
-.container .offset-by-ten {
-    padding-left: 600px;
-}
-
-.container .offset-by-eleven {
-    padding-left: 660px;
-}
-
-.container .offset-by-twelve {
-    padding-left: 720px;
-}
-
-.container .offset-by-thirteen {
-    padding-left: 780px;
-}
-
-.container .offset-by-fourteen {
-    padding-left: 840px;
-}
-
-.container .offset-by-fifteen {
-    padding-left: 900px;
-}
-
-/* Nested Column Classes */
-.column.alpha,
-.columns.alpha {
-    margin-left: 0;
-}
-
-.column.omega,
-.columns.omega {
-    margin-right: 0;
-}
-
-/* WordPress sidebar*/
-#side .one-third.column {
-    margin-left: 30px;
-}
-
-
-/* #Tablet (Portrait)
-================================================== */
-
-/* Note: Design for a width of 768px */
-
-@media only screen and (min-width: 768px) and (max-width: 959px) {
-    .container {
-        width: 768px;
-    }
-
-    .container .column,
-    .container .columns {
-        margin-left: 10px;
-        margin-right: 10px;
-    }
-
-    .column.alpha,
-    .columns.alpha {
-        margin-left: 0;
-        margin-right: 10px;
-    }
-
-    .column.omega,
-    .columns.omega {
-        margin-right: 0;
-        margin-left: 10px;
-    }
-
-    .alpha.omega {
-        margin-left: 0;
-        margin-right: 0;
-    }
-
-    .container .one.column {
-        width: 28px;
-    }
-
-    .container .two.columns {
-        width: 76px;
-    }
-
-    .container .three.columns {
-        width: 124px;
-    }
-
-    .container .four.columns {
-        width: 172px;
-    }
-
-    .container .five.columns {
-        width: 220px;
-    }
-
-    .container .six.columns {
-        width: 268px;
-    }
-
-    .container .seven.columns {
-        width: 316px;
-    }
-
-    .container .eight.columns {
-        width: 364px;
-    }
-
-    .container .nine.columns {
-        width: 412px;
-    }
-
-    .container .ten.columns {
-        width: 460px;
-    }
-
-    .container .eleven.columns {
-        width: 508px;
-    }
-
-    .container .twelve.columns {
-        width: 556px;
-    }
-
-    .container .thirteen.columns {
-        width: 604px;
-    }
-
-    .container .fourteen.columns {
-        width: 652px;
-    }
-
-    .container .fifteen.columns {
-        width: 700px;
-    }
-
-    .container .sixteen.columns {
-        width: 748px;
-    }
-
-    .container .one-third.column {
-        width: 236px;
-    }
-
-    .container .two-thirds.column {
-        width: 492px;
-    }
-
-    /* Offsets */
-    .container .offset-by-one {
-        padding-left: 48px;
-    }
-
-    .container .offset-by-two {
-        padding-left: 96px;
-    }
-
-    .container .offset-by-three {
-        padding-left: 144px;
-    }
-
-    .container .offset-by-four {
-        padding-left: 192px;
-    }
-
-    .container .offset-by-five {
-        padding-left: 240px;
-    }
-
-    .container .offset-by-six {
-        padding-left: 288px;
-    }
-
-    .container .offset-by-seven {
-        padding-left: 336px;
-    }
-
-    .container .offset-by-eight {
-        padding-left: 348px;
-    }
-
-    .container .offset-by-nine {
-        padding-left: 432px;
-    }
-
-    .container .offset-by-ten {
-        padding-left: 480px;
-    }
-
-    .container .offset-by-eleven {
-        padding-left: 528px;
-    }
-
-    .container .offset-by-twelve {
-        padding-left: 576px;
-    }
-
-    .container .offset-by-thirteen {
-        padding-left: 624px;
-    }
-
-    .container .offset-by-fourteen {
-        padding-left: 672px;
-    }
-
-    .container .offset-by-fifteen {
-        padding-left: 720px;
-    }
-
-    /* WordPress sidebar*/
-    .one-third.column {
-        margin-left: 30px;
-    }
-}
-
-
-
-
-/*  #Mobile (Portrait)
-================================================== */
-
-/* Note: Design for a width of 320px */
-
-@media only screen and (max-width: 767px) {
-    .container {
-        width: 300px;
-    }
-
-    .container .columns,
-    .container .column {
-        margin: 0;
-    }
-
-    .container .one.column,
-    .container .two.columns,
-    .container .three.columns,
-    .container .four.columns,
-    .container .five.columns,
-    .container .six.columns,
-    .container .seven.columns,
-    .container .eight.columns,
-    .container .nine.columns,
-    .container .ten.columns,
-    .container .eleven.columns,
-    .container .twelve.columns,
-    .container .thirteen.columns,
-    .container .fourteen.columns,
-    .container .fifteen.columns,
-    .container .sixteen.columns,
-    .container .one-third.column,
-    .container .two-thirds.column {
-        width: 300px;
-    }
-
-    /* Offsets */
-    .container .offset-by-one,
-    .container .offset-by-two,
-    .container .offset-by-three,
-    .container .offset-by-four,
-    .container .offset-by-five,
-    .container .offset-by-six,
-    .container .offset-by-seven,
-    .container .offset-by-eight,
-    .container .offset-by-nine,
-    .container .offset-by-ten,
-    .container .offset-by-eleven,
-    .container .offset-by-twelve,
-    .container .offset-by-thirteen,
-    .container .offset-by-fourteen,
-    .container .offset-by-fifteen {
-        padding-left: 0;
-    }
-
-    /* Float WordPress menu left now, and reduce padding*/
-    .menu {
-        padding-top: 20px;
-        float: left;
-    }
-
-    /* WordPress sidebar*/
-    #side {
-        margin-left: 0px;
-    }
-}
-
-
-/* #Mobile (Landscape)
-================================================== */
-
-/* Note: Design for a width of 480px */
-
-@media only screen and (min-width: 480px) and (max-width: 767px) {
-    .container {
-        width: 420px;
-    }
-
-    .container .columns,
-    .container .column {
-        margin: 0;
-    }
-
-    .container .one.column,
-    .container .two.columns,
-    .container .three.columns,
-    .container .four.columns,
-    .container .five.columns,
-    .container .six.columns,
-    .container .seven.columns,
-    .container .eight.columns,
-    .container .nine.columns,
-    .container .ten.columns,
-    .container .eleven.columns,
-    .container .twelve.columns,
-    .container .thirteen.columns,
-    .container .fourteen.columns,
-    .container .fifteen.columns,
-    .container .sixteen.columns,
-    .container .one-third.column,
-    .container .two-thirds.column {
-        width: 420px;
-    }
-
-
-    /* Float WordPress menu left now and reduce padding*/
-    .menu {
-        padding-top: 20px;
-        float: left;
-    }
-
-    /* WordPress sidebar*/
-    #side {
-        margin-left: 0px;
-    }
-
-}
-
-
-/* #Clearing
-================================================== */
-
-/* Self Clearing Goodness */
-.container:after {
-    content: "\0020";
+blockquote::before {
+    content: "\201C";
     display: block;
+    font-size: 30px;
     height: 0;
-    clear: both;
-    visibility: hidden;
+    left: -20px;
+    position: relative;
+    top: -10px;
 }
 
-/* Use clearfix class on parent to clear nested columns,
-    or wrap each row of columns in a <div class="row"> */
-.clearfix:before,
-.clearfix:after,
-.row:before,
-.row:after {
-    content: '\0020';
-    display: block;
-    overflow: hidden;
-    visibility: hidden;
-    width: 0;
-    height: 0;
+/* Headings
+--------------------------------------------- */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 300;
+    line-height: 1.2;
+    margin: 0 0 10px;
 }
 
-.row:after,
-.clearfix:after {
-    clear: both;
+h1 {
+    font-size: 36px;
 }
 
-.row,
-.clearfix {
-    zoom: 1;
+h2 {
+    font-size: 30px;
 }
 
-/* You can also use a <br class="clear" /> to clear columns */
-.clear {
-    clear: both;
-    display: block;
-    overflow: hidden;
-    visibility: hidden;
-    width: 0;
-    height: 0;
+h3 {
+    font-size: 24px;
+}
+
+h4 {
+    font-size: 20px;
+}
+
+h5 {
+    font-size: 18px;
+}
+
+h6 {
+    font-size: 16px;
+}
+
+/* Objects
+--------------------------------------------- */
+
+embed,
+iframe,
+img,
+object,
+video,
+.wp-caption {
+    max-width: 100%;
+}
+
+img {
+    height: auto;
+}
+
+.featured-content img {
+    width: auto;
+}
+
+/* #Header
+================================================== */
+header {
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    line-height: 55px;
+    height: 55px;
+    background: #335C7D;
+    color: #fff;
+    font-family: 'PT Sans', sans-serif;
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+
+header.sticky {
+    font-size: 20px;
+    line-height: 50px;
+    height: 50px;
+    background: #efc47D;
+    text-align: left;
+    padding-left: 20px;
+    position: fixed;
+    top: 0;
+    z-index: 100;
 }

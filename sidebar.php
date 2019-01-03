@@ -1,7 +1,7 @@
 <?php
 /**
  * @package WordPress
- * @subpackage WP-Skeleton
+ * @subpackage WP-Mike-Notes
  */
 ?>
     <div class="one-third column omega" id="side">

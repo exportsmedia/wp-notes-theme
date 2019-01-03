@@ -4,7 +4,7 @@
  * Description: A full-width template with no sidebar
  *
  * @package WordPress
- * @subpackage WP-Skeleton
+ * @subpackage WP-Mike-Notes
  */
 
 get_header(); 
@@ -23,7 +23,7 @@ get_template_part( 'menu', 'index' ); //the  menu + logo/site title ?>
 
 					<div class="entry-content">
 						<?php the_content(); ?>
-						<?php wp_link_pages( 'before=<div class="page-link">' . __( 'Pages:', 'WP-Skeleton' ) . '&after=</div>' ); ?>
+						<?php wp_link_pages( 'before=<div class="page-link">' . __( 'Pages:', 'WP-Mike-Notes' ) . '&after=</div>' ); ?>
 						<?php edit_post_link( __( 'Edit', 'themename' ), '<span class="edit-link">', '</span>' ); ?>
 					</div><!-- .entry-content -->
 				</article><!-- #post-<?php the_ID(); ?> -->

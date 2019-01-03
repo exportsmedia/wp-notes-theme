@@ -1,7 +1,7 @@
 <?php
 /**
  * @package WordPress
- * @subpackage WP-Skeleton
+ * @subpackage WP-Mike-Notes
  */
 
 get_header(); 
@@ -12,11 +12,11 @@ get_template_part( 'menu', 'index' ); //the  menu + logo/site title ?>
 
 			<article id="post-0" class="error404">
 				<header class="entry-header">
-					<h1 class="entry-title"><?php _e( 'This is somewhat embarrassing, isn&rsquo;t it?', 'WP-Skeleton' ); ?></h1>
+					<h1 class="entry-title"><?php _e( 'This is somewhat embarrassing, isn&rsquo;t it?', 'WP-Mike-Notes' ); ?></h1>
 				</header>
 
 				<div class="entry-content">
-				  <p><?php _e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching, or one of the links below, can help.', 'WP-Skeleton' ); ?></p>
+				  <p><?php _e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching, or one of the links below, can help.', 'WP-Mike-Notes' ); ?></p>
 
 				     <?php get_search_form(); ?>
 
@@ -30,7 +30,7 @@ get_template_part( 'menu', 'index' ); //the  menu + logo/site title ?>
 				    </div>
 
 					<?php
-					$archive_content = '<p>' . sprintf( __( 'Try looking in the monthly archives. %1$s', 'WP-Skeleton' ), convert_smilies( ':)' ) ) . '</p>';
+					$archive_content = '<p>' . sprintf( __( 'Try looking in the monthly archives. %1$s', 'WP-Mike-Notes' ), convert_smilies( ':)' ) ) . '</p>';
 					the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$archive_content" );
 					?>
 

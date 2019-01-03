@@ -1,7 +1,7 @@
 <?php
 /**
  * @package WordPress
- * @subpackage WP-Skeleton
+ * @subpackage WP-Mike-Notes
  */
 
 get_header(); 

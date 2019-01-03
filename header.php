@@ -1,7 +1,7 @@
 <?php
 /**
  * @package WordPress
- * @subpackage WP-Skeleton
+ * @subpackage WP-Mike-Notes
  */
 ?>
 <!DOCTYPE html>
@@ -42,5 +42,7 @@
 
 <body <?php body_class(); ?>><!-- the Body  -->
 
-<div class="container">
+<?php get_template_part( 'menu', 'index' ); //the  menu + logo/site title ?>
+
+<div class="container mt-5">
 
