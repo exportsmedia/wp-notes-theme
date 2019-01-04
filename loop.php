@@ -33,7 +33,7 @@
           <?php foreach($categories as $category) {
 
             $cat_link = get_category_link($category->cat_ID);
-            echo '<a href="/?search='.$category->name.'" class="category-link">'.$category->name.'</a>';
+            echo '<a href="'.$cat_link.'" class="category-link">'.$category->name.'</a>';
           
           } ?>
                         

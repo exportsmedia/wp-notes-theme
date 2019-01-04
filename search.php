@@ -5,7 +5,7 @@
  */
 
 get_header(); 
-get_template_part( 'menu', 'index' ); //the  menu + logo/site title ?>
+ ?>
 
        <div class="two-thirds column alpha">
               <?php if ( have_posts() ) : ?>
@@ -30,6 +30,4 @@ get_template_part( 'menu', 'index' ); //the  menu + logo/site title ?>
               <?php endif; ?>
                    
 </div>
-
-<?php get_template_part( 'sidebar', 'index' ); //the Sidebar ?>
 <?php get_footer(); ?>
