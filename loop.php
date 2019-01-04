@@ -5,47 +5,44 @@
  */
 ?>
 
-   <div class="content">
-     <div class="two-thirds column alpha">
-       <div class="main"> 
+  <div class="content">
+    <div class="container mt-5 mb-5"> 
                         
         <?php while ( have_posts() ) : the_post(); ?> <!--  the Loop -->
                         
-        <article id="post-<?php the_ID(); ?>">
-          <div class="title">            
-             <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title('<h3>', '</h3>'); ?></a>  <!--Post titles-->
-          </div>
-             
-            <?php the_content("Continue reading " . the_title('', '', false)); ?> <!--The Content-->
-	 
-             <!--The Meta, Author, Date, Categories and Comments-->   
-              <div class="meta"> 
-                    Date posted: <?php echo get_the_date(); ?>
-                  | Author: <?php the_author_posts_link(); ?>
-                  | <?php comments_popup_link('No Comments &#187;', '1 Comment &#187;', '% Comments &#187;'); ?>
-                  <p>Categories: <?php the_category(' '); ?></p>
-              </div>
-        </article>
+          <article id="post-<?php the_ID(); ?>">
+            <div class="title">            
+              <?php the_title('<h1 class="font-weight-bold">', '</h1>'); ?>  <!--Post titles-->
+            </div>
+
+            <!--The Meta, Author, Date, Categories and Comments-->   
+              <small class="meta"> 
+                <span  class="font-weight-bold">By <?php the_author(); ?></span>
+                  | 
+                <span  class="font-weight-light"><?php echo get_the_date(); ?></span>
+              </small>
+
+              <hr style="">
+              
+              <?php the_content(); ?> <!--The Content-->
+      
+          </article>
+
+          <?php $categories = get_the_category(); ?>
+
+          <?php foreach($categories as $category) {
+
+            $cat_link = get_category_link($category->cat_ID);
+            echo '<a href="/?search='.$category->name.'" class="category-link">'.$category->name.'</a>';
+          
+          } ?>
                         
-			
         <?php endwhile; ?><!--  End the Loop -->
 
-        <?php /* Display navigation to next/previous pages when applicable */ ?>
+    </div>
   
-        <?php if (  $wp_query->max_num_pages > 1 ) : ?>
-
-          <nav id="nav-below">
-            <hr>
-            <div class="nav-previous"><?php next_posts_link(); ?></div>
-            <div class="nav-next"><?php previous_posts_link(); ?></div>
-          </nav><!-- #nav-below -->
-          
-        <?php endif; ?>
-          
-        <?php /* Only load comments on single post/pages*/ ?>
-        <?php if(is_page() || is_single()) : comments_template( '', true ); endif; ?>
+    <?php /* Only load comments on single post/pages*/ ?>
+    <?php if(is_page() || is_single()) : comments_template( '', true ); endif; ?>
      
-      </div>  <!-- End Main -->
-    </div>  <!-- End two-thirds column -->
   </div><!-- End Content -->
     

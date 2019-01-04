@@ -44,5 +44,7 @@
 
 <?php get_template_part( 'menu', 'index' ); //the  menu + logo/site title ?>
 
-<div class="container mt-5">
+<?php get_template_part( 'hero', 'index' ); //the hero ?>
+
+
 

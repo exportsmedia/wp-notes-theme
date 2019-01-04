@@ -4,18 +4,14 @@
  * @subpackage WP-Mike-Notes
  */
 ?>
-  <div class="clear"></div>
-    <div class="footer">
-       <hr />
-        <div class="sixteen columns">
-            <?php if ( is_active_sidebar( 'footer-sidebar' ) ) : ?> <?php dynamic_sidebar( 'footer-sidebar' ); ?>
-            <?php else : ?><p>You need to drag a widget into your sidebar in the WordPress Admin</p>
-	        <?php endif; ?> 
+    
+    <div class="footer pt-5 pb-5 bg-dark text-light">
+        <div class="container">
+            Footer THings
         </div>
     </div>
-            
-</div>                                            
-<?php wp_footer(); ?>
+                                                      
+    <?php wp_footer(); ?>
    
 </body>
 </html>

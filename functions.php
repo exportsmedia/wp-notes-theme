@@ -27,3 +27,15 @@ function Wps_load_styles() {
 }
 add_action('wp_enqueue_scripts', 'Wps_load_styles');
 } // endif
+
+
+
+add_action('after_setup_theme', 'edit_image_sizes', 99);
+
+function edit_image_sizes() {
+
+  	add_image_size('hero', 1400, 550, true);
+	add_image_size('square', 320, 320, true );
+
+}
+
