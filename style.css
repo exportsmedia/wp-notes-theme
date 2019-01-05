@@ -1154,3 +1154,104 @@ article hr {
 .category-link:hover {
     color: #000;
 }
+
+
+
+
+
+/* #Post Grid
+================================================== */
+
+.recent-item {
+    overflow: hidden;
+    flex: 1;
+}
+
+.item-meta {
+    margin: 10px;
+}
+
+figure.item-image {
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+    width: 100%;
+    color: #ffffff;
+    background-color: #000;
+    text-align: left;
+    font-size: 16px;
+    -webkit-perspective: 50em;
+    perspective: 50em;
+}
+
+figure.item-image * {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+figure.item-image img {
+    opacity: 1;
+    max-width: 100%;
+    vertical-align: top;
+    -webkit-transition-delay: 0.2s;
+    transition-delay: 0.2s;
+    -webkit-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+}
+
+figure.item-image figcaption {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    padding: 0 30px;
+    -webkit-transition: all 0.1s ease-out;
+    transition: all 0.1s ease-out;
+}
+
+figure.item-image h3,
+figure.item-image p {
+    line-height: 1.5em;
+}
+
+figure.item-image h3 {
+    margin: 10px 0 0;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 17px;
+}
+
+figure.item-image p {
+    font-size: 0.8em;
+    font-weight: 500;
+    margin: 0 0 15px;
+}
+
+figure.item-image .read-more {
+    font-size: 1.5em;
+    color: #ffffff;
+    display: inline-block;
+    text-decoration: underline;
+    bottom: 0;
+    position: absolute;
+}
+
+figure.item-image:hover img,
+figure.item-image.hover img {
+    opacity: 0;
+    -webkit-transition-delay: 0;
+    transition-delay: 0;
+}
+
+figure.item-image:hover figcaption,
+figure.item-image.hover figcaption {
+    -webkit-transform: rotateY(0deg) translate(0, 0) scale(1);
+    transform: rotateY(0deg) translate(0, 0) scale(1);
+    opacity: 1;
+    -webkit-transition-delay: 0.2s;
+    transition-delay: 0.2s;
+    top: 0;
+}
