@@ -10,7 +10,7 @@ jQuery(window).scroll(function ($) {
 jQuery(document).ready(function () {
 
     var getMax = function () {
-        return jQuery('.container .content').height() - jQuery(window).height();
+        return jQuery(document).height() - jQuery(window).height();
     }
 
     var getValue = function () {

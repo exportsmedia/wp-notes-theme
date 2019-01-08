@@ -49,10 +49,10 @@
                 <div class="recent-item">
 
                     <figure class="item-image">
-                        <a href="<?php echo the_permalink(); ?>">
+                        <a href="<?php echo get_the_permalink($recent->ID); ?>">
                             <img src="https://source.unsplash.com/random/320x320" alt="sample82" />
                             <figcaption>
-                                <h3><?php echo $recent->post_date; ?></h3>
+                                <h3><?php echo get_time_ago(strtotime($recent->post_date)); ?></h3>
                                 <p class="read-more">Read More</p>
                             </figcaption>
                         </a>
