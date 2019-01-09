@@ -15,7 +15,7 @@ global $post;
                 <a href="<?php echo home_url(); ?>" class="h2" style="margin:0; text-decoration: none;">
                     <span class="font-weight-bold">Michael's</span><span class="font-weight-light">Minutes</span>
                 </a>
-                <span class="description h6 ml-4" style="vertical-align: middle;"><?php echo get_bloginfo('description');?></span>
+                <span class="description h6 ml-4 d-block d-sm-inline-block" style="vertical-align: middle;"><?php echo get_bloginfo('description');?></span>
                 <?php if(isset($post)) { ?>
                     <span class="page-title h6 ml-4" style="vertical-align: middle;"><?php echo $post->post_title;?></span>
                 <?php } ?>

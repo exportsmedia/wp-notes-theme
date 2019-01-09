@@ -34,7 +34,7 @@ get_header(); ?>
 
             </header><!-- .archive-header -->
             
-            <div class="d-flex recents mb-5">
+            <div class="d-flex flex-wrap recents mb-3 justify-content-center">
 
 				<?php
 					// Start the Loop.
