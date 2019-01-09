@@ -12,6 +12,8 @@ include_once( plugin_dir_path( __FILE__ ) . 'lib/customizer.php' );
 register_nav_menu( 'primary', 'Primary Menu' );
 //This theme uses post thumbnails
 add_theme_support( 'post-thumbnails' );
+// Remove p tags from category description
+remove_filter('term_description','wpautop');
 
 
 //Enqueue_styles

@@ -1,8 +1,8 @@
 jQuery(window).scroll(function ($) {
     if (jQuery(this).scrollTop() > 50) {
-        jQuery('header').addClass("sticky");
+        jQuery('.site-header').addClass("sticky");
     } else {
-        jQuery('header').removeClass("sticky");
+        jQuery('.site-header').removeClass("sticky");
     }
 });
 
