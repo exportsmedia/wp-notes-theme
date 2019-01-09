@@ -57,7 +57,7 @@
 
     <div class="container mt-5 mb-5">
 
-        <section class="recent-posts">
+        <section class="recent-posts mb-5">
         
             <span class="text-light bg-dark px-2 py-1 mr-3">Recent Posts</span>
 
@@ -95,13 +95,13 @@
         
         </section>
 
-        <section class="featured-category">
+        <section class="featured-category mt-5">
         
             <span class="text-light bg-dark px-2 py-1 mr-3"><?php echo get_cat_name($featured_category);?></span>
 
             <a href="<?php echo get_category_link( $featured_category ); ?>" class="font-italic">See All</a>
 
-            <div class="d-flex flex-wrap recents mb-3">
+            <div class="d-flex flex-wrap recents mb-3 justify-content-center">
 
                 <?php foreach( $featured_category_posts as $post ) { setup_postdata( $post ); ?>
 

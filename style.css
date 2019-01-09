@@ -558,7 +558,6 @@ img {
     background: #fff;
     color: #000;
     text-align: left;
-    padding-left: 20px;
     position: fixed;
     top: 0;
     z-index: 100;
@@ -573,18 +572,29 @@ img {
     float: left;
 }
 
+.site-header .logo a:hover {
+    color: #A6DCF3;
+}
+
+
+@media (max-width: 768px) {
+    .site-header .logo {
+        margin-left: 20px;
+    }
+}
+
 .site-header .page-title {
-    display: none;
+    display: none !important;
     -webkit-transition: all 0.4s ease;
     transition: all 0.4s ease;
 }
 
 .single .site-header.sticky .description {
-    display: none;
+    display: none !important;
 }
 
 .single .site-header.sticky .page-title {
-    display: inline-block;
+    display: inline-block !important;
 }
 
 
@@ -1162,29 +1172,34 @@ article hr,
 
 /* #Post Grid
 ================================================== */
+.category-archive .recents::after {
+    content: "";
+    flex: auto;
+}
 
 .recent-item {
     overflow: hidden;
-    flex: 1 0 25%;
+    flex: 0 1 25%;
     max-width: 320px;
 }
-
-
 
 @media (max-width: 1100px) {
     .recent-item {
         overflow: hidden;
-        flex: 1 0 50%;
+        flex: 0 1 50%;
     }
 }
 
 @media (max-width: 600px) {
     .recent-item {
         overflow: hidden;
-        flex: 1 0 100%;
+        flex: 0 1 100%;
+    }
+
+    .category-archive .recents::after {
+        display: none;
     }
 }
-
 
 .item-meta {
     margin: 10px;
