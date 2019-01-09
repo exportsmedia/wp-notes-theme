@@ -34,7 +34,7 @@ get_header(); ?>
 
             </header><!-- .archive-header -->
             
-            <div class="d-flex recents">
+            <div class="d-flex recents mb-5">
 
 				<?php
 					// Start the Loop.
@@ -60,7 +60,7 @@ get_header(); ?>
 
                             <div class="item-meta">
                                 <p class="font-weight-bold h6"><?php the_title(); ?></p>
-                                <p class="h6"><?php echo the_excerpt(); ?></p>
+                                <p class="h6"><?php echo get_post_meta(get_the_ID(), 'post_byline', true); ?></p>
                             </div>
 
                         </div>

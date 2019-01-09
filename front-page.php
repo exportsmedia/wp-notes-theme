@@ -60,7 +60,7 @@
 
             <a href="/all/" class="font-italic">See All</a>
 
-            <div class="d-flex recents">
+            <div class="d-flex recents mb-3">
 
                 <?php foreach( $recent_posts as $post ) { setup_postdata( $post ); ?>
 
@@ -81,7 +81,7 @@
 
                         <div class="item-meta">
                             <p class="font-weight-bold h6"><?php echo $post->post_title; ?></p>
-                            <p class="h6"><?php echo $post->post_excerpt; ?></p>
+                            <p class="h6"><?php echo get_post_meta($post->ID, 'post_byline', true); ?></p>
                         </div>
 
                     </div>
@@ -98,7 +98,7 @@
 
             <a href="<?php echo get_category_link( $featured_category ); ?>" class="font-italic">See All</a>
 
-            <div class="d-flex recents">
+            <div class="d-flex recents mb-3">
 
                 <?php foreach( $featured_category_posts as $post ) { setup_postdata( $post ); ?>
 
@@ -119,7 +119,7 @@
 
                         <div class="item-meta">
                             <p class="font-weight-bold h6"><?php echo $post->post_title; ?></p>
-                            <p class="h6"><?php echo $post->post_excerpt; ?></p>
+                            <p class="h6"><?php echo get_post_meta($post->ID, 'post_byline', true); ?></p>
                         </div>
 
                     </div>
