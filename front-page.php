@@ -18,6 +18,8 @@
 
     $recent_posts = get_posts( $args );
 
+	wp_reset_query();
+
     $featured_img_url = get_the_post_thumbnail_url($recent_posts{0}->ID,'hero');
 
     if($featured_img_url) { ?>
@@ -28,48 +30,107 @@
 
     $count = 1;
 
-    //$posts = array_shift($recent_posts);
     unset($recent_posts[0]);
     // echo '<pre>';
     // print_r($recent_posts);
     // echo '</pre>';
 
+    $featured_category = get_theme_mod('featured_category');
+
+    $args = array(
+        'numberposts' => 4,
+        'orderby' => 'post_date',
+        'order' => 'DESC',
+        'post_type' => 'post',
+        'category' => $featured_category,
+        'post_status' => 'publish'
+    );
+
+    $featured_category_posts = get_posts( $args );
+
+    wp_reset_query();
+
     ?>
 
     <div class="container mt-5 mb-5">
 
-        <span class="text-light bg-dark px-2 py-1 mr-3">Recent Posts</span>
+        <section class="recent-posts">
+        
+            <span class="text-light bg-dark px-2 py-1 mr-3">Recent Posts</span>
 
-        <a href="/all/" class="font-italic">See All</a>
+            <a href="/all/" class="font-italic">See All</a>
 
-        <div class="d-flex recents">
+            <div class="d-flex recents">
 
-            <?php foreach( $recent_posts as $recent ) { setup_postdata( $recent ); ?>
+                <?php foreach( $recent_posts as $post ) { setup_postdata( $post ); ?>
 
-                <div class="recent-item">
+                    <div class="recent-item">
 
-                    <figure class="item-image">
-                        <a href="<?php echo get_the_permalink($recent->ID); ?>">
-                            <img src="https://source.unsplash.com/random/320x320" alt="sample82" />
-                            <figcaption>
-                                <h3><?php echo get_time_ago(strtotime($recent->post_date)); ?></h3>
-                                <p class="read-more">Read More</p>
-                            </figcaption>
-                        </a>
-                    </figure>
+                        <figure class="item-image">
+                            <a href="<?php echo get_the_permalink($post->ID); ?>">
+                                <?php $featured_img_url = get_the_post_thumbnail_url($post->ID,'square'); ?>
+                                <?php if($featured_img_url) { ?>
+                                    <img src="<?php echo $featured_img_url; ?>" alt="<?php echo get_the_title($post->ID); ?>" />
+                                <?php } ?>
+                                <figcaption>
+                                    <h3><?php echo get_time_ago(strtotime($post->post_date)); ?></h3>
+                                    <p class="read-more">Read More</p>
+                                </figcaption>
+                            </a>
+                        </figure>
 
-                    <div class="item-meta">
-                        <p class="font-weight-bold h6"><?php echo $recent->post_title; ?></p>
-                        <p class="h6"><?php echo $recent->post_excerpt; ?></p>
+                        <div class="item-meta">
+                            <p class="font-weight-bold h6"><?php echo $post->post_title; ?></p>
+                            <p class="h6"><?php echo $post->post_excerpt; ?></p>
+                        </div>
+
                     </div>
 
-                </div>
+                <?php } ?>
+            
+            </div>
+        
+        </section>
 
-            <?php } ?>
+        <section class="featured-category">
+        
+            <span class="text-light bg-dark px-2 py-1 mr-3"><?php echo get_cat_name($featured_category);?></span>
+
+            <a href="<?php echo get_category_link( $featured_category ); ?>" class="font-italic">See All</a>
+
+            <div class="d-flex recents">
+
+                <?php foreach( $featured_category_posts as $post ) { setup_postdata( $post ); ?>
+
+                    <div class="recent-item">
+
+                        <figure class="item-image">
+                            <a href="<?php echo get_the_permalink($post->ID); ?>">
+                                <?php $featured_img_url = get_the_post_thumbnail_url($post->ID,'square'); ?>
+                                <?php if($featured_img_url) { ?>
+                                    <img src="<?php echo $featured_img_url; ?>" alt="<?php echo get_the_title($post->ID); ?>" />
+                                <?php } ?>
+                                <figcaption>
+                                    <h3><?php echo get_time_ago(strtotime($post->post_date)); ?></h3>
+                                    <p class="read-more">Read More</p>
+                                </figcaption>
+                            </a>
+                        </figure>
+
+                        <div class="item-meta">
+                            <p class="font-weight-bold h6"><?php echo $post->post_title; ?></p>
+                            <p class="h6"><?php echo $post->post_excerpt; ?></p>
+                        </div>
+
+                    </div>
+
+                <?php } ?>
 
             </div>
         
-        </div>
+        </section>
+
+    </div>
 
     <?php
 

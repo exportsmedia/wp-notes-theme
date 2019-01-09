@@ -1178,7 +1178,6 @@ figure.item-image {
     margin: 10px;
     width: 100%;
     color: #ffffff;
-    background-color: #000;
     text-align: left;
     font-size: 16px;
     -webkit-perspective: 50em;
@@ -1201,6 +1200,7 @@ figure.item-image img {
 }
 
 figure.item-image figcaption {
+    background-color: rgba(0, 0, 0, .6);
     position: absolute;
     left: 0;
     width: 100%;
@@ -1219,6 +1219,7 @@ figure.item-image p {
 
 figure.item-image h3 {
     margin: 10px 0 0;
+    color: #A6DCF3;
     font-weight: 800;
     text-transform: uppercase;
     font-size: 17px;
@@ -1239,19 +1240,12 @@ figure.item-image .read-more {
     position: absolute;
 }
 
-figure.item-image:hover img,
-figure.item-image.hover img {
-    opacity: 0;
-    -webkit-transition-delay: 0;
-    transition-delay: 0;
-}
-
 figure.item-image:hover figcaption,
 figure.item-image.hover figcaption {
     -webkit-transform: rotateY(0deg) translate(0, 0) scale(1);
     transform: rotateY(0deg) translate(0, 0) scale(1);
     opacity: 1;
-    -webkit-transition-delay: 0.2s;
-    transition-delay: 0.2s;
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
     top: 0;
 }

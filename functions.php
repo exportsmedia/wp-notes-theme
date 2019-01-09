@@ -5,6 +5,8 @@
  */
 
 include_once( plugin_dir_path( __FILE__ ) . 'lib/helpers.php' );
+include_once( plugin_dir_path( __FILE__ ) . 'lib/customizer_controls.php' );
+include_once( plugin_dir_path( __FILE__ ) . 'lib/customizer.php' );
 
 //Drag and drop menu support
 register_nav_menu( 'primary', 'Primary Menu' );
