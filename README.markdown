@@ -14,3 +14,4 @@ This is a very simple theme for displaying my thoughts and exeriences.
 
 * This theme is very opinionated. I wanted a very specific design and functionality this is based on my preferences. Feel free to fork and make it your own!
 
+![Theme Screenshot](/screenshot.png?raw=true)
