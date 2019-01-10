@@ -17,9 +17,8 @@ add_theme_support( 'post-thumbnails' );
 remove_filter('term_description','wpautop');
 
 
-//Enqueue_styles
-if ( ! function_exists( 'Wps_load_styles' ) ) {
-function Wps_load_styles() {
+
+function theme_load_styles() {
 
 	wp_register_style( 'skeleton-style', get_template_directory_uri() . '/style.css');
 	wp_register_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.css');
@@ -32,9 +31,16 @@ function Wps_load_styles() {
 	wp_enqueue_script( 'main-theme-js', get_template_directory_uri() . '/js/main.js', array( 'jquery' ), date("ymd-Gis", filemtime( plugin_dir_path( __FILE__) . '/js/main.js' )), true );
 
 }
-add_action('wp_enqueue_scripts', 'Wps_load_styles');
-} // endif
+add_action('wp_enqueue_scripts', 'theme_load_styles');
 
+
+
+function admin_load_styles() {
+
+	wp_enqueue_script( 'admin-theme-js', get_template_directory_uri() . '/js/admin.js', array( 'jquery' ), date("ymd-Gis", filemtime( plugin_dir_path( __FILE__) . '/js/admin.js' )), true );
+
+}
+add_action('admin_enqueue_scripts', 'admin_load_styles');
 
 
 add_action('after_setup_theme', 'edit_image_sizes', 99);

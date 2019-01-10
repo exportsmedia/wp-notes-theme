@@ -87,3 +87,41 @@ function save_post_byline_meta( $post_id, $post ) {
       
 }
 add_action( 'save_post', 'save_post_byline_meta', 10, 2 );
+
+
+
+add_action( 'add_meta_boxes', 'hero_image_add_metabox' );
+function hero_image_add_metabox () {
+	add_meta_box( 'heroimagediv', __( 'Hero Image', 'text-domain' ), 'hero_image_metabox', 'post', 'side', 'low');
+}
+function hero_image_metabox ( $post ) {
+	global $content_width, $_wp_additional_image_sizes;
+	$image_id = get_post_meta( $post->ID, '_hero_image_id', true );
+	$old_content_width = $content_width;
+	$content_width = 254;
+	if ( $image_id && get_post( $image_id ) ) {
+		if ( ! isset( $_wp_additional_image_sizes['post-thumbnail'] ) ) {
+			$thumbnail_html = wp_get_attachment_image( $image_id, array( $content_width, $content_width ) );
+		} else {
+			$thumbnail_html = wp_get_attachment_image( $image_id, 'post-thumbnail' );
+		}
+		if ( ! empty( $thumbnail_html ) ) {
+			$content = $thumbnail_html;
+			$content .= '<p class="hide-if-no-js"><a href="javascript:;" id="remove_hero_image_button" >' . esc_html__( 'Remove Hero image', 'text-domain' ) . '</a></p>';
+			$content .= '<input type="hidden" id="upload_hero_image" name="_hero_cover_image" value="' . esc_attr( $image_id ) . '" />';
+		}
+		$content_width = $old_content_width;
+	} else {
+		$content = '<img src="" style="width:' . esc_attr( $content_width ) . 'px;height:auto;border:0;display:none;" />';
+		$content .= '<p class="hide-if-no-js"><a title="' . esc_attr__( 'Set Hero image', 'text-domain' ) . '" href="javascript:;" id="upload_hero_image_button" id="set-listing-image" data-uploader_title="' . esc_attr__( 'Choose an image', 'text-domain' ) . '" data-uploader_button_text="' . esc_attr__( 'Set Hero image', 'text-domain' ) . '">' . esc_html__( 'Set Hero image', 'text-domain' ) . '</a></p>';
+		$content .= '<input type="hidden" id="upload_hero_image" name="_hero_cover_image" value="" />';
+	}
+	echo $content;
+}
+add_action( 'save_post', 'hero_image_save', 10, 1 );
+function hero_image_save ( $post_id ) {
+	if( isset( $_POST['_hero_cover_image'] ) ) {
+		$image_id = (int) $_POST['_hero_cover_image'];
+		update_post_meta( $post_id, '_hero_image_id', $image_id );
+	}
+}

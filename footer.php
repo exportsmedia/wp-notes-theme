@@ -7,7 +7,7 @@
     
     <div class="footer pt-5 pb-5 bg-dark text-light">
         <div class="container">
-            Footer Things
+            © 2019 <?php echo get_bloginfo( 'name' ); ?>
         </div>
     </div>
                                                       
