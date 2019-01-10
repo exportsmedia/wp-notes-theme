@@ -47,7 +47,7 @@ get_header(); ?>
 
                             <figure class="item-image">
                                 <a href="<?php echo get_the_permalink(get_the_ID()); ?>">
-                                    <?php $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'square'); ?>
+                                    <?php $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full'); ?>
                                     <?php if($featured_img_url) { ?>
                                         <img src="<?php echo $featured_img_url; ?>" alt="<?php echo get_the_title(get_the_ID()); ?>" />
                                     <?php } ?>
@@ -67,20 +67,9 @@ get_header(); ?>
 
                     <?php
 					endwhile;
-					// Previous/next page navigation.
-					global $wp_query;
-
-                    $big = 999999999; // need an unlikely integer
-
-                    echo paginate_links( array(
-                        'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
-                        'format' => '?paged=%#%',
-                        'current' => max( 1, get_query_var('paged') ),
-                        'total' => $wp_query->max_num_pages
-                    ) );
 				else :
 					// If no content, include the "No posts found" template.
-					get_template_part( 'content', 'none' );
+					echo '<h2>No posts founds.</h2>';
 				endif;
                 ?>
             </div>

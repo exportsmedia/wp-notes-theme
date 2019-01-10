@@ -18,11 +18,13 @@
 
     $recent_posts = get_posts( $args );
 
-    $featured_img_url = get_the_post_thumbnail_url($recent_posts{0}->ID,'hero');
+    $hero_id = get_post_meta( $recent_posts{0}->ID, '_hero_image_id', true);
 
-    if($featured_img_url) { ?>
+    $hero_img_url = wp_get_attachment_url($hero_id);
 
-        <div class="hero bg-image" style="background-image: url(<?php echo $featured_img_url; ?>);">
+    if($hero_img_url) { ?>
+
+        <div class="hero bg-image" style="background-image: url(<?php echo $hero_img_url; ?>);">
             <a href="<?php echo get_the_permalink($recent_posts{0}->ID); ?>" title="Read <?php echo get_the_title($recent_posts{0}->ID); ?>" style="position: absolute;top:0;bottom:0;left:0;right:0;"></a>
         </div>
 
@@ -71,7 +73,7 @@
 
                         <figure class="item-image">
                             <a href="<?php echo get_the_permalink($post->ID); ?>">
-                                <?php $featured_img_url = get_the_post_thumbnail_url($post->ID,'square'); ?>
+                                <?php $featured_img_url = get_the_post_thumbnail_url($post->ID,'full'); ?>
                                 <?php if($featured_img_url) { ?>
                                     <img src="<?php echo $featured_img_url; ?>" alt="<?php echo get_the_title($post->ID); ?>" />
                                 <?php } ?>
@@ -109,7 +111,7 @@
 
                         <figure class="item-image">
                             <a href="<?php echo get_the_permalink($post->ID); ?>">
-                                <?php $featured_img_url = get_the_post_thumbnail_url($post->ID,'square'); ?>
+                                <?php $featured_img_url = get_the_post_thumbnail_url($post->ID,'full'); ?>
                                 <?php if($featured_img_url) { ?>
                                     <img src="<?php echo $featured_img_url; ?>" alt="<?php echo get_the_title($post->ID); ?>" />
                                 <?php } ?>

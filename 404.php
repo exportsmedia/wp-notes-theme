@@ -5,10 +5,9 @@
  */
 
 get_header(); 
-get_template_part( 'menu', 'index' ); //the  menu + logo/site title ?>
-
-	<div class="two-thirds column alpha">
-		<div id="content">
+?>
+	<section id="primary" class="content-area container page-404 mt-5 mb-5">
+		<div id="content" class="site-content" role="main">
 
 			<article id="post-0" class="error404">
 				<header class="entry-header">
@@ -39,8 +38,6 @@ get_template_part( 'menu', 'index' ); //the  menu + logo/site title ?>
 			</article><!-- #post-0 -->
 
 		</div><!-- #content -->
-	</div><!-- #primary -->
+</section><!-- #primary -->
         
-
-<?php get_template_part( 'sidebar', 'index' ); //the Sidebar ?>
 <?php get_footer(); ?>

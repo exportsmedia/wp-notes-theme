@@ -43,12 +43,12 @@ function admin_load_styles() {
 add_action('admin_enqueue_scripts', 'admin_load_styles');
 
 
-add_action('after_setup_theme', 'edit_image_sizes', 99);
+// add_action('after_setup_theme', 'edit_image_sizes', 99);
 
-function edit_image_sizes() {
+// function edit_image_sizes() {
 
-  	add_image_size('hero', 1400, 550, true);
-	add_image_size('square', 320, 320, true );
+//   	add_image_size('hero', 1400, 550, true);
+// 	add_image_size('square', 320, 320, true );
 
-}
+// }
 

@@ -400,11 +400,16 @@ Defaults
 
 body {
     background-color: #fff;
-    color: #444;
+    color: #000;
     font-family: 'Open Sans',
         sans-serif;
     font-size: 16px;
     line-height: 1.625;
+    height: 100%;
+}
+
+#primary {
+    min-height: 100vh
 }
 
 a,
@@ -1141,8 +1146,8 @@ article hr,
 #content header hr {
     width: 75px;
     height: 5px;
-    color: #444;
-    background: #444;
+    color: #000;
+    background: #000;
     margin-left: 0;
 }
 
@@ -1172,7 +1177,8 @@ article hr,
 
 /* #Post Grid
 ================================================== */
-.category-archive .recents::after {
+.category-archive .recents::after,
+.posts-archive .recents::after {
     content: "";
     flex: auto;
 }
@@ -1196,7 +1202,8 @@ article hr,
         flex: 0 1 100%;
     }
 
-    .category-archive .recents::after {
+    .category-archive .recents::after,
+    .posts-archive .recents::after {
         display: none;
     }
 }

@@ -8,11 +8,13 @@ global $post;
 
 <?php if(is_single()) { ?>
 
-    <?php $featured_img_url = get_the_post_thumbnail_url($post->ID,'hero'); ?>
+    <?php $hero_id = get_post_meta( $post->ID, '_hero_image_id', true); ?>
 
-    <?php if($featured_img_url) { ?>
+    <?php $hero_img_url = wp_get_attachment_url($hero_id); ?>
 
-        <div class="hero bg-image" style="background-image: url(<?php echo $featured_img_url; ?>);"></div>
+    <?php if($hero_img_url) { ?>
+
+        <div class="hero bg-image" style="background-image: url(<?php echo $hero_img_url; ?>);"></div>
 
     <?php } ?>
 
