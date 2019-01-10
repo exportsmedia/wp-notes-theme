@@ -57,7 +57,7 @@
 
     ?>
 
-    <div class="container mt-5 mb-5">
+    <div id="primary" class="container mt-5 mb-5">
 
         <section class="recent-posts mb-5">
         
