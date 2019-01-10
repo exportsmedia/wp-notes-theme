@@ -6,7 +6,13 @@
 global $post;
 ?>
 
-<?php if(is_single()) { ?>
+<?php if(is_single()) {
+
+    $count = (int) get_post_meta($post->ID, 'view_count', true);
+    
+    update_post_meta($post->ID, 'view_count', ($count + 1));
+    
+    ?>
 
     <?php $hero_id = get_post_meta( $post->ID, '_hero_image_id', true); ?>
 

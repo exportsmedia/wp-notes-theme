@@ -90,6 +90,7 @@ add_action( 'save_post', 'save_post_byline_meta', 10, 2 );
 
 
 
+
 add_action( 'add_meta_boxes', 'hero_image_add_metabox' );
 function hero_image_add_metabox () {
 	add_meta_box( 'heroimagediv', __( 'Hero Image', 'text-domain' ), 'hero_image_metabox', 'post', 'side', 'low');
@@ -125,3 +126,72 @@ function hero_image_save ( $post_id ) {
 		update_post_meta( $post_id, '_hero_image_id', $image_id );
 	}
 }
+
+
+
+
+function add_post_meta_box() {
+	add_meta_box(
+		'post_meta_box', // $id
+		'View Count', // $title
+		'show_post_meta_box', // $callback
+		'post', // $screen
+		'side', // $context
+		'low' // $priority
+	);
+}
+add_action( 'add_meta_boxes', 'add_post_meta_box' );
+
+
+function show_post_meta_box() {
+    wp_nonce_field( basename( __FILE__ ), 'view_meta_box_nonce' );
+	global $post;  
+	$view_count = (int) get_post_meta( $post->ID, 'view_count', true ); ?>
+
+    <p>
+        <input type="number" class="byline" name="view_meta[view_count]" id="view_meta[view_count]" style="width: 100%;" value="<?php echo ($view_count) ? $view_count : 0; ?>">
+    </p>
+
+    <?php 
+
+}
+
+
+function save_post_meta( $post_id, $post ) {   
+	/* Verify the nonce before proceeding. */
+    if ( !isset( $_POST['view_meta_box_nonce'] ) || !wp_verify_nonce( $_POST['view_meta_box_nonce'], basename( __FILE__ ) ) )
+        return $post_id;
+	// check autosave
+	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+		return $post_id;
+	}
+	/* Get the post type object. */
+    $post_type = get_post_type_object( $post->post_type );
+
+    /* Check if the current user has permission to edit the post. */
+    if ( !current_user_can( $post_type->cap->edit_post, $post_id ) )
+        return $post_id;
+	
+    if(!empty($_POST['view_meta'])){
+
+		foreach($_POST['view_meta'] as $key => $value){
+
+			/* Get the posted data and sanitize it for use as an HTML class. */
+			$new_meta_value = ( isset( $value ) ? sanitize_text_field( $value ) : '' );
+
+			if ( $new_meta_value != '' ) {
+
+				update_post_meta( $post_id, $key, $new_meta_value );
+
+			} else {
+
+				delete_post_meta( $post_id, $key );
+
+			}
+
+		}
+
+    }
+      
+}
+add_action( 'save_post', 'save_post_meta', 10, 2 );
